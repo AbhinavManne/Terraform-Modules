@@ -1,0 +1,4 @@
+route_table_name,rulename,address_prefix,next_hop_type,next_hop_in_ip_address
+rt01,Rule01,10.1.0.0/16,VnetLocal,null
+rt01,Rule02,10.2.0.0/16,VnetLocal,null
+rt02,Rule01,10.3.0.0/16,VnetLocal,null
