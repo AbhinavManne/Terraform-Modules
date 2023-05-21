@@ -1,0 +1,8 @@
+Issue while while cloning repo: SSL certificate problem: unable to get local issuer certificate
+command to resolve the above issue
+Open Git Bash and run the command if you want to completely disable SSL verification.
+
+git config --global http.sslVerify false
+Note: This solution opens you to attacks like man-in-the-middle attacks. Therefore turn on verification again as soon as possible:
+
+git config --global http.sslVerify true
