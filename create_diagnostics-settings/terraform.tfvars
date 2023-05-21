@@ -1,0 +1,13 @@
+enable_log_monitoring          = true
+diag_name                      = "resource-diag"
+target_resource_id             = null
+log_analytics_workspace_id     = null
+log_analytics_destination_type = null #"Dedicated"
+storage_account_id             = null
+eventhub_name                  = null
+eventhub_authorization_rule_id = null
+log_enabled                    = true
+log_retention_policy_enabled   = true
+log_retention_days             = 7
+metric_retention_policy_enabled= true
+metric_retention_days          = 7
