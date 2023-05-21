@@ -1,0 +1,3 @@
+priority,weight,port,target
+1,5,8080,"target1.contoso.com"
+10,10,8080,"target2.contoso.com"

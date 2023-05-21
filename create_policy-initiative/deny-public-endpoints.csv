@@ -1,0 +1,9 @@
+﻿Policy,Name,PolicyType,Mode,DisplayName,Description,PolicyRule
+Policy1,Deny-PublicEndpoint-Aks,Custom,Indexed,Public network access on AKS API should be disabled,This policy denies the creation of Azure Kubernetes Service non-private clusters,./policies/Deny-PublicEndpoint-Aks.json
+Policy2,Deny-PublicEndpoint-CosmosDB,Custom,Indexed,Public network access should be disabled for CosmosDB,This policy denies that Cosmos database accounts are created with out public network access is disabled,./policies/Deny-PublicEndpoint-CosmosDB.json
+Policy3,Deny-PublicEndpoint-KeyVault,Custom,Indexed,Public network access should be disabled for KeyVault,This policy denies creation of Key Vaults with IP Firewall exposed to all public endpoints,./policies/Deny-PublicEndpoint-KeyVault.json
+Policy4,Deny-PublicEndpoint-MariaDB,Custom,Indexed,Public network access should be disabled for MariaDB,This policy denies the creation of Maria DB accounts with exposed public endpoints,./policies/Deny-PublicEndpoint-MariaDB.json
+Policy5,Deny-PublicEndpoint-MySQL,Custom,Indexed,Public network access should be disabled for MySQL,This policy denies creation of MySql DB accounts with exposed public endpoints,./policies/Deny-PublicEndpoint-MySQL.json
+Policy6,Deny-PublicEndpoint-PostgreSql,Custom,Indexed,Public network access should be disabled for PostgreSql,This policy denies creation of Postgre SQL DB accounts with exposed public endpoints,./policies/Deny-PublicEndpoint-PostgreSql.json
+Policy7,Deny-PublicEndpoint-Sql,Custom,Indexed,Public network access on Azure SQL Database should be disabled,This policy denies creation of Sql servers with exposed public endpoints,./policies/Deny-PublicEndpoint-Sql.json
+Polucy8,Deny-PublicEndpoint-Storage,Custom,Indexed,Public network access on Storage accounts should be disabled,This policy denies creation of storage accounts with IP Firewall exposed to all public endpoints,./policies/Deny-PublicEndpoint-Storage.json
