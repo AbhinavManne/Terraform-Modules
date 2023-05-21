@@ -1,0 +1,49 @@
+module "virtual_network_gateway" {
+  source                                = "../../modules/module_virtualnetworkgateway"
+  resource_group_name                   = var.resource_group_name
+  location                              = var.location
+  virtual_network_gateway_name          = var.virtual_network_gateway_name
+  virtual_network_gateway_type          = var.virtual_network_gateway_type
+  virtual_network_gateway_active_active = var.virtual_network_gateway_active_active
+  virtual_network_gateway_sku           = var.virtual_network_gateway_sku
+  default_local_network_gateway_id      = var.default_local_network_gateway_id
+  virtual_network_gateway_edge_zone     = var.virtual_network_gateway_edge_zone
+  virtual_network_gateway_enable_bgp    = var.virtual_network_gateway_enable_bgp
+  virtual_network_gateway_generation    = var.virtual_network_gateway_generation
+  private_ip_address_enabled            = var.private_ip_address_enabled
+  virtual_network_gateway_vpn_type      = var.virtual_network_gateway_vpn_type
+  ip_configuration_name                 = var.ip_configuration_name
+  ip_configuration_pip_addalloc         = var.ip_configuration_pip_addalloc
+  ip_configuration_pip_id               = var.ip_configuration_pip_id
+  ip_configuration_subnet_id            = var.ip_configuration_subnet_id
+  vnet_gateway_ip_configuration         = var.vnet_gateway_ip_configuration
+  bgp_settings                          = var.bgp_settings
+  vpn_client_configuration              = var.vpn_client_configuration
+  tags                                  = var.tags
+}
+
+#Reference to module that provisions alerts resources
+module "alert" {
+  source = "../../modules/module_alert"
+  action_group_name        = var.action_group_name
+  resource_group_name      = var.resource_group_name
+  resource_group_location  = var.location
+  short_name               = var.short_name
+  action_group_rule_name   = var.action_group_rule_name
+  scope_type               = var.scope_type
+  resource_id              = module.virtual_network_gateway.virtual_network_gateway_id
+  activity_log_alert_name  = var.activity_log_alert_name
+  resource_group_id        = var.resource_group_id
+  operation_name_log_alert = var.operation_name_log_alert
+  category_log_alert       = var.category_log_alert
+  metric_alert_name        = var.metric_alert_name
+  storage_account_id       = var.storage_account_id
+  metric_namespace         = var.metric_namespace
+  metric_name              = var.metric_name
+  aggregation              = var.aggregation
+  operator                 = var.operator
+  threshold                = var.threshold
+  dimension_name           = var.dimension_name
+  dimension_operator       = var.dimension_operator
+  values                   = var.values
+}
