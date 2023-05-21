@@ -1,0 +1,53 @@
+module "azure_eventgrid_system-topic" {
+  source                                             = "../../modules/module_event-grid-system-topic"
+  eventgrid_system_topic_name                        = var.eventgrid_system_topic_name
+  location                                           = module.module_create_resource_group.resource_group_location
+  resource_group_name                                = module.module_create_resource_group.resource_group_name
+  source_arm_resource_id                             = var.source_arm_resource_id
+  topic_type                                         = var.topic_type
+  tags                                               = var.tags
+  managed_identity_type                              = var.managed_identity_type
+  managed_identity_ids                               = var.managed_identity_ids
+  eventgrid_system_topic_event_subscription_name     = var.eventgrid_system_topic_event_subscription_name
+  expiration_time_utc                                = var.expiration_time_utc
+  event_delivery_schema                              = var.event_delivery_schema
+  eventhub_endpoint_id                               = var.eventhub_endpoint_id
+  hybrid_connection_endpoint_id                      = var.hybrid_connection_endpoint_id
+  service_bus_queue_endpoint_id                      = var.service_bus_queue_endpoint_id
+  service_bus_topic_endpoint_id                      = var.service_bus_topic_endpoint_id
+  included_event_types                               = var.included_event_types
+  labels                                             = var.labels
+  advanced_filtering_on_arrays_enabled               = var.advanced_filtering_on_arrays_enabled
+  function_id                                        = var.function_id
+  max_events_per_batch                               = var.max_events_per_batch
+  preferred_batch_size_in_kilobytes                  = var.preferred_batch_size_in_kilobytes
+  queue_name                                         = var.queue_name
+  storage_account_id                                 = var.storage_account_id
+  queue_message_time_to_live_in_seconds              = var.queue_message_time_to_live_in_seconds
+  url                                                = var.url
+  base_url                                           = var.base_url
+  webhook_endpoint_max_events_per_batch              = var.webhook_endpoint_max_events_per_batch
+  webhook_endpoint_preferred_batch_size_in_kilobytes = var.webhook_endpoint_preferred_batch_size_in_kilobytes
+  active_directory_tenant_id                         = var.active_directory_tenant_id
+  active_directory_app_id_or_uri                     = var.active_directory_app_id_or_uri
+  enable_subject_filter                              = var.enable_subject_filter
+  subject_begins_with                                = var.subject_begins_with
+  subject_ends_with                                  = var.subject_ends_with
+  case_sensitive                                     = var.case_sensitive
+  delivery_identity_type                             = var.delivery_identity_type
+  delivery_user_assigned_identity                    = var.delivery_user_assigned_identity
+  delivery_property                                  = var.delivery_property
+  dead_letter_identity_type                          = var.dead_letter_identity_type
+  dead_letter_user_assigned_identity                 = var.dead_letter_user_assigned_identity
+  storage_blob_container_name                        = var.storage_blob_container_name
+  max_delivery_attempts                              = var.max_delivery_attempts
+  event_time_to_live                                 = var.event_time_to_live
+}
+
+module "module_create_resource_group" {
+  source                = "../../modules/module_resource-group-creation/resource_group"
+  create_resource_group = var.create_resource_group
+  resource_group_name   = var.resource_group_name
+  location              = var.location
+  tags                  = var.tags
+}
