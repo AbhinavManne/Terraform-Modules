@@ -1,0 +1,34 @@
+#Reference to security center module
+module "security_center" {
+  source                       = "../../modules/module_security_center"
+  target_resource_id           = var.target_resource_id
+  //enable_threat_protection     = var.enable_threat_protection
+  create_assessment_policy     = var.create_assessment_policy
+  assess_policy_description    = var.assess_policy_description
+  assess_policy_display_name   = var.assess_policy_display_name
+  assess_policy_severity       = var.assess_policy_severity
+  assess_policy_categories     = var.assess_policy_categories
+  implementation_effort        = var.implementation_effort
+  remediation_description      = var.remediation_description
+  assess_policy_threats        = var.assess_policy_threats
+  assess_policy_user_impact    = var.assess_policy_user_impact
+  additional_data              = var.additional_data
+  status_code                  = var.status_code
+  status_cause                 = var.status_cause
+  status_description           = var.status_description
+  enable_auto_provision        = var.enable_auto_provision
+  auto_provision               = var.auto_provision
+  add_contact                  = var.add_contact
+  security_center_contact_name = var.security_center_contact_name
+  security_center_email        = var.security_center_email
+  security_center_phone        = var.security_center_phone
+  alert_notifications          = var.alert_notifications
+  alerts_to_admins             = var.alerts_to_admins
+  setting_name                 = var.setting_name
+  enable_setting               = var.enable_setting
+  enable_pricing               = var.enable_pricing
+  pricing_tier                 = var.pricing_tier
+  pricing_resource_type        = var.pricing_resource_type
+  add_workspace                = var.add_workspace
+  log_analytics_id             = var.log_analytics_id
+}
