@@ -1,0 +1,29 @@
+
+module "Traffic_Manager_profile" {
+  source                       = "../modules/module_traffic_manager_profile_and_manger_azure_endpoint/manage_profile_and_azure_endpoint"
+  resource_group_name          = var.resource_group_name
+  resource_group_location      = var.resource_group_location
+  traffic_manager_profile_name = var.traffic_manager_profile_name
+  traffic_routing_method       = var.traffic_routing_method
+  ttl                          = var.ttl
+  protocol                     = var.protocol
+  port                         = var.port
+  path                         = var.path 
+  interval_in_seconds          = var.interval_in_seconds
+  timeout_in_seconds           = var.timeout_in_seconds
+  tolerated_number_of_failures = var.tolerated_number_of_failures
+  azure_end_point_name         = var.azure_end_point_name
+  azure_end_point_weight       = var.azure_end_point_weight 
+  tags                         = var.tags
+  profile_status               = var.profile_status
+  traffic_view_enabled         = var.traffic_view_enabled
+  max_return                   = var.max_return
+  custom_header                = var.custom_header
+  expected_status_code_ranges  = var.expected_status_code_ranges
+  enabled                      = var.enabled
+  priority                     = var.priority
+  subnet                       = var.subnet
+  target_resource_id           = var.target_resource_id
+  geo_mappings                 = var.geo_mappings
+  endpoint_custom_header       = var.endpoint_custom_header
+}

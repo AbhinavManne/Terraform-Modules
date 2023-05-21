@@ -1,0 +1,9 @@
+  virtualhub          = "vh"
+  rg                  = "rg"
+  location            = "East US"
+  virtual_wan_id      = "/subscriptions/dcd2c118-9f88-4a53-8b1b-fbc235ad0bef/resourceGroups/rg/providers/Microsoft.Network/virtualWans/virtualwan"
+  address_prefix      = "10.0.0.0/23"
+  sku                 = null
+  tags                = null
+  next_hop_ip_address = null
+  route               = null
