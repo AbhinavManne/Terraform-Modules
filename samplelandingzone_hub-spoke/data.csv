@@ -1,0 +1,3 @@
+Rule,Name,Protocol,Source_Address,Destination_Address,Destination_Port,Priority,Target_FQDNs
+Rule1,"Dmtrset	",TCP,1.4.101.26,10.4.6.4,8080,100,www.google.com
+Rule2,ADForestByPass,TCP,1.4.107.27,10.1.1.1,1433,400,www.google.com
