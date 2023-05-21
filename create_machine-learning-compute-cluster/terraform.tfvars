@@ -1,0 +1,14 @@
+resource_group                       = "rg"
+application_insights_name            = "workspace-ex-ai"
+key_vault_name                       = "workspacekv12"
+storage_account_name                 = "storagel1"
+workspace_name                       = "workspace153"
+identity_type                        = "SystemAssigned"
+vm_priority                          = "LowPriority"
+vm_size                              = "Standard_DS2_v2"
+min_node_count                       = 0
+max_node_count                       = 1
+scale_down_nodes_after_idle_duration = "PT30S"
+vnet_name                            = "vnet1"
+subnet_name                          = "snet1"
+compute_cluster                      = "clus1"

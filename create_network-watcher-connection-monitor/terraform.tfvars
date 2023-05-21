@@ -1,0 +1,34 @@
+resource_group                 = "rg"
+vnet_name                      = "vnet1"
+subnet_name                    = "subnet1"
+application_gateway_name       = "app10"
+network_interface_name         = "nic1"
+network_watcher_name           = "example-watcher"
+virtual_machine                = "vm1"
+publisher                      = "Microsoft.Azure.NetworkWatcher"
+virtual_machine_extension_name = "example-VMExtension"
+type                           = "NetworkWatcherAgentLinux"
+type_handler_version           = "1.4"
+auto_upgrade_minor_version     = "true"
+log_analytics_workspace_name   = "example-Nic12"
+connection_monitor_name        = "example-Monitor"
+endpoint_name1                 = "source"
+endpoint_name2                 = "destination"
+endpoint_address               = "terraform.io"
+item_type                      = "AgentAddress"
+filter_type                    = "Include"
+tc_name                        = "tcpName"
+tc_protocol                    = "Tcp"
+tc_port                        = "80"
+tc_frequency                   = "60"
+test_group_name                = "exampletg"
+destination_endpoints          = ["destination"]
+source_endpoints               = ["source"]
+test_configuration_names       = ["tcpName"]
+
+role_definition_name = ["Reader"]
+tags = {
+  Contact_name     = "Nikita"
+  Cost_Center      = 999
+  Application_name = "network watcher"
+}

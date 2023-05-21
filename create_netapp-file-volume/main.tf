@@ -1,0 +1,26 @@
+module "NetApp_files_volume" {
+  source                  = "../../modules/module_netapp-files-volume"
+  resource_group_name     = var.resource_group_name
+  export_policy_rule      = var.export_policy_rule
+  virtual_network_primary = var.virtual_network_primary
+  primary_subnet          = var.primary_subnet
+  account_name            = var.account_name
+  pool_name               = var.pool_name
+  service_level           = var.service_level
+  size_in_tb              = var.size_in_tb
+  volume_path             = var.volume_path
+  netapp_volume_primary   = var.netapp_volume_primary
+  protocols               = var.protocols
+  security_style          = var.security_style
+  storage_quota_in_gb     = var.storage_quota_in_gb
+  address_prefixes1       = var.address_prefixes1
+  address_prefixes2       = var.address_prefixes2
+  delegation_name         = var.delegation_name
+  service_delegation_name = var.service_delegation_name
+  actions                 = var.actions
+  location                = var.location
+  endpoint_type         = var.endpoint_type
+  replication_frequency = var.replication_frequency
+  network_features      = var.network_features
+  tags                  = var.tags
+}
