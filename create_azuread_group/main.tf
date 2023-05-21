@@ -1,0 +1,23 @@
+module "azuread_group_module" {
+  for_each = var.azuread_group
+  source                     = "../../modules/module_azuread_group"
+  assignable_to_role         = lookup(each.value,"assignable_to_role")
+  auto_subscribe_new_members = lookup(each.value,"auto_subscribe_new_members")
+  description                = lookup(each.value,"description")
+  display_name               = each.key
+  enabled                    = lookup(each.value,"enabled")
+  rule                       = lookup(each.value,"rule")
+  external_senders_allowed   = lookup(each.value,"external_senders_allowed")
+  hide_from_address_lists    = lookup(each.value,"hide_from_address_lists")
+  hide_from_outlook_clients  = lookup(each.value,"hide_from_outlook_clients")
+  mail_enabled               = lookup(each.value,"mail_enabled")
+  mail_nickname              = lookup(each.value,"mail_nickname")
+  members                    = lookup(each.value,"members")
+  owners                     = lookup(each.value,"owners")
+  prevent_duplicate_names    = lookup(each.value,"prevent_duplicate_names")
+  provisioning_options       = lookup(each.value,"provisioning_options")
+  security_enabled           = lookup(each.value,"security_enabled")
+  theme                      = lookup(each.value,"theme")
+  types                      = lookup(each.value,"types")
+  visibility                 = lookup(each.value,"visibility")
+}

@@ -1,0 +1,8 @@
+resource_group_name = "rg"
+azurerm_key_vault   = "njdnjdsns"
+secret_name         = "passpasspas"
+project_name        = "SampleDevops"
+description         = "Managed by Terraform"
+visibility          = "private"
+version_control     = "Git"
+work_item_template  = "Agile"

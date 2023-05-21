@@ -1,0 +1,27 @@
+rg                                                   ="RG1"
+location                                             = "East US"
+workspace                                            = "data_workspace"
+sku                                                  = "trial"
+load_balancer_backend_address_pool_id                = null
+managed_services_cmk_key_vault_key_id                = null
+mrg                                                  = null
+customer_managed_key_enabled                         = false
+infrastructure_encryption_enabled                    = false
+public_network_access_enabled                        = false
+network_security_group_rules_required                = null
+machine_learning_workspace_id                        = null
+nat_gateway_name                                     = null
+no_public_ip                                         = true
+public_subnet_name                                   = "publicsubnet"
+public_subnet_network_security_group_association_id  = "/subscriptions/0c16f01a-03cc-41b1-9bc5-7281511a6279/resourcegroups/RG1/providers/Microsoft.Network/networkSecurityGroups/publicnsg"
+private_subnet_name                                  = "privatesubnet"
+private_subnet_network_security_group_association_id = "/subscriptions/0c16f01a-03cc-41b1-9bc5-7281511a6279/resourcegroups/RG1/providers/Microsoft.Network/networkSecurityGroups/privatensg"
+storage_account_name                                 = null
+storage_account_sku_name                             = null
+virtual_network_id                                   = "/subscriptions/0c16f01a-03cc-41b1-9bc5-7281511a6279/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/vnet"
+vnet_address_prefix                                  = 10.139
+custom_parameters                                    = true
+tags = {
+  "project" = "CIL"
+   "Name" = "Aswini"
+}
