@@ -1,0 +1,222 @@
+variable "storage_account_name" {
+  description = "Storage account name"
+  type        = string
+}
+
+variable "location" {
+  description = "Specifies the supported Azure location to MySQL server resource"
+  type        = string
+}
+
+variable "create_resource_group" {
+  description = "resource group creation "
+  type        = string
+}
+
+variable "skuname" {
+  description = "skuname for stoareg account"
+  type        = string
+  default     = "Premium_LRS"
+}
+variable "resource_group" {
+  description = "name of the resource group to create the resource"
+  type        = string
+}
+
+
+variable "enable_advanced_threat_protection" {
+  description = "threat protection"
+  type        = string
+  default     = "true"
+}
+variable "tags" {
+  description = "tags to be applied to resources"
+  type        = map(string)
+}
+
+
+
+variable "account_tier" {
+  description = "Defines the Tier to use for this storage account (Standard or Premium)."
+  type        = string
+}
+
+variable "access_tier" {
+  description = "Defines the access tier for BlobStorage, FileStorage and StorageV2 accounts"
+  type        = string
+
+
+  validation {
+    condition     = (contains(["hot", "cool"], lower(var.access_tier)))
+    error_message = "The account_tier must be either \"Hot\" or \"Cool\"."
+  }
+}
+
+variable "replication_type" {
+  description = "Storage account replication type - i.e. LRS, GRS, RAGRS, ZRS, GZRS, RAGZRS."
+  type        = string
+}
+
+variable "enable_large_file_share" {
+  description = "Enable Large File Share."
+  type        = bool
+  default     = false
+}
+
+variable "enable_hns" {
+  description = "Enable Hierarchical Namespace (can be used with Azure Data Lake Storage Gen 2)."
+  type        = bool
+  default     = false
+}
+
+variable "enable_https_traffic_only" {
+  description = "Forces HTTPS if enabled."
+  type        = bool
+  default     = true
+}
+
+variable "min_tls_version" {
+  description = "The minimum supported TLS version for the storage account."
+  type        = string
+  default     = "TLS1_2"
+}
+
+variable "allow_blob_public_access" {
+  description = "Allow or disallow public access to all blobs or containers in the storage account."
+  type        = bool
+  default     = false
+}
+
+# Note: make sure to include the IP address of the host from where "terraform" command is executed to allow for access to the storage
+# Otherwise, creating container inside the storage or any access attempt will be denied.
+variable "access_list" {
+  description = "Map of CIDRs Storage Account access."
+  type        = map(string)
+  default     = {}
+}
+
+variable "service_endpoints" {
+  description = "Creates a virtual network rule in the subnet_id (values are virtual network subnet ids)."
+  type        = map(string)
+  default     = {}
+}
+
+variable "traffic_bypass" {
+  description = "Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of Logging, Metrics, AzureServices, or None."
+  type        = list(string)
+  default     = ["None"]
+}
+
+variable "blob_soft_delete_retention_days" {
+  description = "Retention days for deleted blob. Valid value is between 1 and 365 (set to 0 to disable)."
+  type        = number
+}
+
+variable "blob_cors" {
+  description = "blob service cors rules:  https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#cors_rule"
+  type = map(object({
+    allowed_headers    = list(string)
+    allowed_methods    = list(string)
+    allowed_origins    = list(string)
+    exposed_headers    = list(string)
+    max_age_in_seconds = number
+  }))
+  default = null
+}
+
+variable "enable_static_website" {
+  description = "Controls if static website to be enabled on the storage account. Possible values are `true` or `false`"
+  type        = bool
+  default     = false
+}
+
+variable "index_path" {
+  description = "path from your repo root to index.html"
+  type        = string
+  default     = null
+}
+
+variable "custom_404_path" {
+  description = "path from your repo root to your custom 404 page"
+  type        = string
+  default     = null
+}
+
+variable "encryption_scopes" {
+  description = "Encryption scopes, keys are scope names. more info https://docs.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable?tabs=portal"
+  type = map(object({
+    enable_infrastructure_encryption = bool
+  }))
+  default = {}
+}
+
+variable "nfsv3_enabled" {
+  description = "Is NFSv3 protocol enabled? Changing this forces a new resource to be created"
+  type        = bool
+  default     = false
+}
+
+variable "default_network_rule" {
+  description = "Specifies the default action of allow or deny when no other network rules match"
+  type        = string
+  default     = "Deny"
+
+  validation {
+    condition     = (contains(["deny", "allow"], lower(var.default_network_rule)))
+    error_message = "The default_network_rule must be either \"Deny\" or \"Allow\"."
+  }
+}
+
+variable "shared_access_key_enabled" {
+  description = "Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key"
+  type        = bool
+  default     = false
+}
+
+
+variable "container_soft_delete_retention_days" {
+  description = "Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`"
+  default     = 7
+}
+
+variable "enable_versioning" {
+  description = "Is versioning enabled? Default to `false`"
+  default     = false
+}
+
+variable "last_access_time_enabled" {
+  description = "Is the last access time based tracking enabled? Default to `false`"
+  default     = false
+}
+
+variable "change_feed_enabled" {
+  description = "Is the blob service properties for change feed events enabled?"
+  default     = false
+}
+
+
+variable "network_rules" {
+  description = "Network rules restricing access to the storage account."
+  type        = object({ bypass = list(string), ip_rules = list(string), subnet_ids = list(string) })
+  default     = null
+}
+
+variable "file_shares" {
+  description = "List of containers to create and their access levels."
+  type        = list(object({ name = string, quota = number }))
+  default     = []
+}
+variable "storage_share_file_name" {
+  type        = list(object({ name = string }))
+  description = "The name (or path) of the File that should be created within this File Share"
+}
+
+variable "storage_share_file_source" {
+  type        = list(object({ source = string }))
+  description = "An absolute path to a file on the local system"
+}
+
+variable "role_definition_name" {
+  type        = list(string)
+  description = "List of Role Definitions"
+}
