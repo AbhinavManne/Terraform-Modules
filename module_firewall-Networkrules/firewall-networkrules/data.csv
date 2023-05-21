@@ -1,0 +1,5 @@
+Rule,Name,Protocol,Source_Address,Destination_Address,Destination_Port,Priority,action
+Rule1,"Dmtrset	",TCP,1.4.101.26,10.4.6.4,8080,100,Allow
+Rule2,"Dmtrset1	",TCP,1.4.102.26,10.4.6.4,8080,200,Allow
+Rule3,"ADForestCheck	",UDP,1.4.107.27,10.1.1.10,1433,300,Deny
+Rule4,ADForestByPass,TCP,1.4.107.27,10.1.1.1,1433,400,Deny

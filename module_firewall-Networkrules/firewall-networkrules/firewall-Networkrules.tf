@@ -1,0 +1,36 @@
+
+locals {
+  data_list = csvdecode(file(var.csv_file_name))
+}
+
+resource "azurerm_firewall_network_rule_collection" "example" {
+  for_each            = { for data_list in local.data_list : data_list.Rule => data_list }
+  name                = each.value.Rule
+  azure_firewall_name = var.firewall_name
+  resource_group_name = var.resource_group_name
+  priority            = each.value.Priority
+  action              = each.value.action
+
+  rule {
+
+    name = each.value.Name
+
+    source_addresses = [
+      each.value.Source_Address
+    ]
+
+    destination_ports = [
+      each.value.Destination_Port
+    ]
+
+    destination_addresses = [
+      each.value.Destination_Address
+    ]
+
+    protocols =  [
+      each.value.Protocol
+    ]
+  
+
+  }
+}
